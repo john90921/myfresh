@@ -22,14 +22,13 @@ class UpdateOrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
             'country' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:100',
             'postcode' => 'required|string|max:20',
-            'note' => 'nullable|string',
+            'notes' => 'nullable|string',
         ];
     }
         public function messages()

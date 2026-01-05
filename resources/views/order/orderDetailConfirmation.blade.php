@@ -312,7 +312,7 @@
 
                                 <div class="form-group">
                                     <label for="notes">Order Notes (Optional)</label>
-                                    <div>{{ $order->note }}</div>
+                                    <div>{{ $order->notes }}</div>
                                 </div>
                                 <input type="hidden" name="order_id" value="{{ $order->id }}">
                                 <input type="hidden" name="amount" value="{{ $order->total_amount }}">

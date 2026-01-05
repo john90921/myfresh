@@ -312,7 +312,7 @@
 
                                 <div class="form-group">
                                     <label for="notes">Order Notes (Optional)</label>
-                                    <div>{{ $order->note }}</div>
+                                    <div>{{ $order->notes }}</div>
                                 </div>
 
 
