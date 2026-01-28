@@ -4,10 +4,15 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * StoreOrderRequest
+ * Validates order creation data - customer delivery information
+ */
 class StoreOrderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     * Returns true - all authenticated users can create orders
      */
     public function authorize(): bool
     {
@@ -16,22 +21,27 @@ class StoreOrderRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
+     * Validates customer delivery and contact information
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:20',
-            'country' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'city' => 'required|string|max:100',
-            'postcode' => 'required|string|max:20',
-            'note' => 'nullable|string',
+            'name' => 'required|string|max:255',        // Customer name
+            'phone' => 'required|string|max:20',        // Contact number
+            'country' => 'required|string|max:255',     // Delivery country
+            'address' => 'required|string|max:255',     // Street address
+            'city' => 'required|string|max:100',        // City name
+            'postcode' => 'required|string|max:20',     // Postal/ZIP code
+            'note' => 'nullable|string',                // Optional delivery notes
 
         ];
     }
+
+    /**
+     * Custom validation error messages
+     */
     public function messages()
     {
         return [

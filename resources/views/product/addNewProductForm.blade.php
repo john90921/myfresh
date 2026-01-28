@@ -21,7 +21,7 @@
         }
 
         .form-header h2 {
-            color: #667eea;
+            color: #090909;
             font-weight: 700;
             font-size: 2rem;
             margin-bottom: 10px;
@@ -54,8 +54,8 @@
         }
 
         .form-control:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+            border-color: #090909;
+            box-shadow: 0 0 0 0.2rem rgba(9, 9, 9, 0.25);
             outline: none;
         }
 
@@ -100,7 +100,7 @@
             position: absolute;
             top: -12px;
             left: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #090909 0%, #764ba2 100%);
             color: rgb(255, 255, 255);
             padding: 4px 12px;
             border-radius: 20px;
@@ -117,7 +117,7 @@
         }
 
         .input-icon {
-            color: #667eea;
+            color: #090909;
             margin-right: 8px;
         }
 
@@ -138,7 +138,7 @@
         }
 
         .btn-add-package {
-            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            background: #090909;
             color: white;
             border: none;
             border-radius: 10px;
@@ -155,7 +155,7 @@
         }
 
         .btn-submit {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #090909;
             color: white;
             border: none;
             border-radius: 10px;
@@ -169,7 +169,7 @@
 
         .btn-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+
         }
 
         .file-input-wrapper {
@@ -207,7 +207,7 @@
     <div class="product-form-container">
         <div class="form-card">
             <div class="form-header">
-                <h2>✨ Add New Product</h2>
+                <h2> Add New Product</h2>
                 <p>Fill in the details below to create a new product</p>
             </div>
 
@@ -215,18 +215,18 @@
                 @csrf
 
                 <div class="form-group">
-                    <label for="name">📦 Product Name</label>
-                    <input value="sad" type="text" class="form-control" id="name" placeholder="Enter product name" name="name" required>
+                    <label for="name">Product Name</label>
+                    <input  type="text" class="form-control" id="name" placeholder="Enter product name" name="name" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="description">📝 Description</label>
+                    <label for="description">Description</label>
                     <textarea value="sad" class="form-control" id="description" placeholder="Enter product description" name="description" rows="4" required></textarea>
                 </div>
 
                 <div x-data="{ packages: [{name:'', price:0, quantity:0,description:''}] }" class="package-section">
                     <div class="package-section-title">
-                        📦 Product Packages
+                        Product Packages
                     </div>
 
                     <template x-for="(package, index) in packages" :key="index">
@@ -248,7 +248,7 @@
 
                             <div class="row-package">
                                 <div class="input-group-custom">
-                                    <label :for="`package-price-${index}`" class="form-label">💰 Price (RM)</label>
+                                    <label :for="`package-price-${index}`" class="form-label">Price (RM)</label>
                                     <input
                                         type="number"
                                         :name="`package[${index}][price]`"
@@ -263,7 +263,7 @@
                                 </div>
 
                                 <div class="input-group-custom">
-                                    <label :for="`package-quantity-${index}`" class="form-label">📊 Quantity</label>
+                                    <label :for="`package-quantity-${index}`" class="form-label">Quantity</label>
                                     <input
                                         type="number"
                                         :name="`package[${index}][quantity]`"
@@ -295,7 +295,7 @@
                                         class="btn-delete"
                                         @click="packages.splice(index, 1)"
                                         x-show="index > 0">
-                                        🗑️ Delete
+                                        Delete
                                     </button>
                                 </div>
                             </div>
@@ -306,19 +306,19 @@
                         type="button"
                         class="btn-add-package"
                         @click="packages.push({name:'', price:0, quantity:0}); console.log(packages)">
-                        ➕ Add Another Package
+                        Add Another Package
                     </button>
                 </div>
 
                 <div class="form-group">
-                    <label for="image">🖼️ Product Image</label>
+                    <label for="image">Product Image</label>
                     <div class="file-input-wrapper">
                         <input type="file" class="form-control" id="image" name="image" required>
                     </div>
                 </div>
 
                 <button type="submit" class="btn-submit">
-                    🚀 Create Product
+                     Create Product
                 </button>
             </form>
         </div>

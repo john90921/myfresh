@@ -47,6 +47,10 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * Relationship: User has many Orders
+     * Get all orders placed by this user
+     */
     public function orders()
     {
         return $this->hasMany(Order::class);

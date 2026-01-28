@@ -81,10 +81,16 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(int $productID)
     {
 // Retrieve related packages
  try{
+    $product = Product::with('packages')->findOrFail($productID);
+    return response()->json([
+        'success' => true,
+        'data' => $product
+    ], 200);
+
         $packages = $product->packages()->get();
         return response()->json([
             'success' => true,
@@ -141,9 +147,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(int $productID)
     {
        try{
+        $product = Product::findOrFail($productID);
         $product->delete();
         return response()->json([
             'success' => true,
